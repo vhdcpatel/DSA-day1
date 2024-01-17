@@ -1,4 +1,4 @@
-/* 
+/*
 Problem statement
 
 Programming languages have some conditional / decision-making statements that execute when some specific condition is fulfilled.
@@ -14,20 +14,24 @@ If ‘ch’ is 1, ‘a’ contains a single number ‘r’. If ‘ch’ is 2, �
 Consider the choice and print the appropriate area.
 */
 
-#include<iostream>
-#include<math.h>
+#include <iostream>
+#include <math.h>
+#include <vector>
 using namespace std;
 
-double areaSwitchCase(int ch, vector<double> a) {
-	switch(ch){
-		case 1:
-			return M_PI*(a[0]*a[0]);
-		case 2:
-			return a[0]*a[1];
+double areaSwitchCase(int ch, vector<double> a)
+{
+	switch (ch)
+	{
+	case 1:
+		return M_PI * (a[0] * a[0]);
+	case 2:
+		return a[0] * a[1];
 	}
 }
 
-int main(){
- 
-  return 0;
+int main()
+{
+
+	return 0;
 }
