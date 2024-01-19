@@ -29,6 +29,22 @@ void doSomething(int num)
     cout << num << endl;
     num += num;
     cout << num << endl;
+    cout << "Memory location of num in doSomething " << &num << endl;
+}
+
+void doSomethingString(string &s)
+{
+    // Making the first letter of string capital
+    s[0] = 'V';
+    cout << s << endl;
+}
+
+int addTenInEach(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] += 10;
+    }
 }
 
 int main()
@@ -62,5 +78,30 @@ int main()
     int numFun = 10;
     doSomething(numFun);
     cout << numFun << endl;
+    cout << "Memory location of num in mail " << &numFun << endl;
+    // Both are stored in different memory location.
     // Above is pass by value, so the value of numFun is not changed.
+
+    // One more function which is pass by reference
+    string s = "vraj";
+    doSomethingString(s);
+    cout << s << endl;
+
+    // one more:
+    int arr[5] = {1, 2, 3, 4, 5};
+    // print array
+
+    // Methods to find array size
+    // 1. sizeof(arr)/sizeof(arr[0])
+    // 2. arr.size() -> From STL.
+    // 3. int len = *(&arr + 1) - arr; // Using the pointer.
+    // 4. counting using the loop.
+    // 5. end(arr)-begin(arr);
+
+    // Array Goes with reference.
+    addTenInEach(arr, 5);
+    for (int i = 0; i < 5; i++)
+    {
+        cout << arr[i] << " ";
+    }
 }
