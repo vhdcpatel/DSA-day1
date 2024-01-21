@@ -12,6 +12,7 @@ void Swap(int &x, int &y)
     y = x + y;
     x = y - x;
     y = y - x;
+    // not best practice to manipulate the variable directly in the interview.
 }
 int main()
 {
