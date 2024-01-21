@@ -3,13 +3,9 @@ using namespace std;
 int Maximum(int x, int y)
 {
     if (x > y)
-    {
         return x;
-    }
-    else
-    {
-        return y;
-    }
+
+    return y;
 }
 void Swap(int &x, int &y)
 {
