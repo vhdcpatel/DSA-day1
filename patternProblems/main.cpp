@@ -111,10 +111,233 @@ void p8(int n)
     }
 }
 
+// Good problem
+void p10(int n)
+{
+    int limit;
+    for (int i = 0; i <= (2 * n - 1); i++)
+    {
+        if (i < n)
+        {
+            limit = i;
+        }
+        else
+        {
+            limit = (n - i % n);
+            // or 2n-i
+        }
+        // if (i <= n)
+        // {
+        //     for (int j = 0; j < i; j++)
+        //     {
+        //         cout << "*";
+        //     }
+        // }
+        // else
+        // {
+        for (int j = 0; j < limit; j++)
+        {
+            cout << "*";
+        }
+        // }
+
+        cout << endl;
+    }
+}
+
+// not the same
+void p10E(int n)
+{
+    bool num = true;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (num)
+            {
+                cout << 1;
+            }
+            else
+            {
+                cout << 0;
+            }
+            num = !num;
+        }
+        cout << endl;
+    }
+}
+
+void p11(int n)
+{
+    int start = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (i & 1)
+        {
+            // even row
+            start = 0;
+        }
+        else
+        {
+            start = 1;
+        }
+        for (int j = 0; j <= i; j++)
+        {
+            cout << start;
+            start = 1 - start;
+        }
+        cout << endl;
+    }
+}
+
+void p12(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << j;
+        }
+        for (int s = 1; s <= 2 * (n - i); s++)
+        {
+            cout << " ";
+        }
+        for (int k = i; k >= 1; k--)
+        {
+            cout << k;
+        }
+
+        cout << endl;
+    }
+}
+
+void p13(int n)
+{
+    int num = 1;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            cout << num++ << " ";
+        }
+        cout << endl;
+    }
+}
+
+void p14(int n)
+{
+    char char1 = 'A';
+    for (int i = 0; i < n; i++)
+    {
+
+        for (int j = 0; j <= i; j++)
+        {
+            cout << static_cast<char>(char1 + j);
+        }
+        cout << endl;
+    }
+}
+
+void p15(int n)
+{
+    char char1 = 'A';
+    for (int i = 0; i < n; i++)
+    {
+
+        for (int j = 0; j < (n - i); j++)
+        {
+            cout << static_cast<char>(char1 + j);
+        }
+        cout << endl;
+    }
+}
+
+void p16(int n)
+{
+    char char1 = 'A';
+    for (int i = 0; i < n; i++)
+    {
+
+        for (int j = 0; j <= i; j++)
+        {
+            cout << static_cast<char>(char1 + i);
+        }
+        cout << endl;
+    }
+}
+
+void p17(int n)
+{
+    char char1 = 'A';
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - 1 - i; j++)
+        {
+            cout << " ";
+        }
+        for (int j = 0; j <= i; j++)
+        {
+            cout << static_cast<char>(char1 + j) << "";
+        }
+        // Heavy level coding.
+        for (int k = i; k > 0; k--)
+        {
+
+            cout << static_cast<char>(char1 + k - 1);
+        }
+        cout << endl;
+    }
+}
+
+void p18(int n)
+{
+    // Does't work for other then specific.
+    for (int i = 0; i < n; i++)
+    {
+        for (char ch = 'E' - i; ch <= 'E'; ch++)
+        {
+            cout << ch << " ";
+        }
+        cout << endl;
+    }
+}
+
+void p19(int n)
+{
+    int starLimit, spaceLimit;
+    for (int i = 0; i < 2 * n; i++)
+    {
+        if (i < n)
+        {
+            starLimit = n - i;
+            spaceLimit = 2 * i;
+        }
+        else
+        {
+            starLimit = i - n;
+            spaceLimit = 2 * (i);
+        }
+        for (int j = 0; j < starLimit; j++)
+        {
+            cout << "*";
+        }
+        for (int k = 0; k < spaceLimit; k++)
+        {
+            cout << " ";
+        }
+        for (int j = 0; j < starLimit; j++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
 
-    p7(5);
+    p19(5);
 
     // p9 is just combination of 7 and 8
     // p7(8);
