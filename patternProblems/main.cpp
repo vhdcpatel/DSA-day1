@@ -305,30 +305,71 @@ void p18(int n)
 
 void p19(int n)
 {
-    int starLimit, spaceLimit;
-    for (int i = 0; i < 2 * n; i++)
+    int endst, endsp;
+    for (int i = 0; i < 2 * (n); i++)
     {
         if (i < n)
         {
-            starLimit = n - i;
-            spaceLimit = 2 * i;
+            endst = n - i;
+            endsp = 2 * i;
         }
         else
         {
-            starLimit = i - n;
-            spaceLimit = 2 * (i);
+            endst = i - n + 1;
+            endsp = 2 * (n - i % n - 1);
+            // or my logic 2*(n-i%n-1))
         }
-        for (int j = 0; j < starLimit; j++)
+        for (int j = 0; j < endst; j++)
+        {
+            std::cout << "*";
+        }
+        for (int j = 0; j < endsp; j++)
+        {
+            std::cout << " ";
+        }
+        for (int j = 0; j < endst; j++)
+        {
+            std::cout << "*";
+        }
+        std::cout << std::endl;
+    }
+}
+
+void p20(int n)
+{
+    int limit, limitSpace = 2 * n - 2;
+    for (int i = 1; i <= 2 * n - 1; i++)
+    {
+        if (i > n)
+        {
+            limit = 2 * n - i;
+        }
+        else
+        {
+            limit = i;
+        }
+        // start
+        for (int j = 0; j < limit; j++)
         {
             cout << "*";
         }
-        for (int k = 0; k < spaceLimit; k++)
+        // space
+        for (int k = 0; k < limitSpace; k++)
         {
             cout << " ";
         }
-        for (int j = 0; j < starLimit; j++)
+        // start
+        for (int j = 0; j < limit; j++)
         {
             cout << "*";
+        }
+        if (i < n)
+        {
+            limitSpace -= 2;
+        }
+        else
+        {
+            limitSpace += 2;
         }
         cout << endl;
     }
@@ -337,8 +378,7 @@ void p19(int n)
 int main()
 {
 
-    p19(5);
-
+    p20(5);
     // p9 is just combination of 7 and 8
     // p7(8);
     // p8(5);
