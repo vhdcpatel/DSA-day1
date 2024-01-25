@@ -375,10 +375,46 @@ void p20(int n)
     }
 }
 
+void p21(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (i == 0 || j == 0 || j == n - 1 || i == n - 1)
+            {
+                cout << "*";
+            }
+            else
+            {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void p22(int n)
+{
+    int top, left, right, bottom;
+    for (int i = 0; i < 2 * n - 1; i++)
+    {
+        for (int j = 0; j < 2 * n - 1; j++)
+        {
+            top = i;
+            left = j;
+            right = 2 * (n - 1) - j;
+            bottom = 2 * (n - 1) - i;
+            cout << (n - min(min(top, bottom), min(left, right)));
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
 
-    p20(5);
+    p22(4);
     // p9 is just combination of 7 and 8
     // p7(8);
     // p8(5);
