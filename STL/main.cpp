@@ -5,6 +5,7 @@
 #include <deque>
 #include <stack>
 #include <queue>
+#include <set>
 
 // For example
 // #include <math.h>
@@ -259,12 +260,59 @@ void explainPQ()
     // pop: O(log(n))
 }
 
+void setExplain()
+{
+    // Stored everything in sorted order and store unique order.
+    set<int> st;
+
+    st.insert(1);  // {1}
+    st.emplace(2); // {1,2}
+    st.insert(2);  // {1,2}
+    st.insert(5);  // {1,2,5}
+    st.insert(4);  // {1,2,4,5} -> Every thing is stored in the sorted order.
+
+    // Uses tree under the hood.
+
+    // Functionality of insert in vector
+    // can be used also, that only increases efficiency
+
+    // begin(), end(), rbegin(), rend(), size(),
+    // empty() and swap() are same as those of above.
+
+    // {1,2,3,4,5}
+    auto it = st.find(2);  // return the iterator of the value.
+    cout << *it;           // getting value of the
+    auto it2 = st.find(6); // if not present then return last.
+    cout << "--" << *it2;
+
+    st.erase(4); // erase the element.
+    // cout << it << endl;
+
+    int cout = st.count(0); // if exist return 1 else 0;
+
+    auto it = st.find(3);
+    st.erase(it); // we can give element as well as address for deletion.
+
+    // {1,2,3,4,5}
+    auto it1 = st.find(2);
+    auto it2 = st.find(4);
+    st.erase(it1, it2); // erase everting in between of this address.
+
+    // lower_bound() and upper_bound() functions work in the same way.
+    // as in vector it does.
+
+    // syntax
+    auto itL = st.lower_bound(2);
+
+    auto itU = st.upper_bound(4);
+}
+
 int main()
 {
     // learnPair();
     // explainVector();
     // explainQueue();
-    explainPQ();
+    setExplain();
 
     return 0;
 }
