@@ -4,6 +4,7 @@
 #include <queue>
 #include <set>
 #include <stack>
+#include <unordered_set>
 #include <utility>
 #include <vector>
 
@@ -14,7 +15,15 @@
 // To include all header but this will increase the compilation time of the
 // code. #include <bits/stdc++.h>
 using namespace std;
-// Containers for storing data
+
+// For printing purpose functionf.
+template <typename Container>
+void printContainer(const Container &cont) {
+  for (const auto &element : cont) {
+    std::cout << element << " ";
+  }
+  std::cout << std::endl;
+}
 
 void printVector(vector<int> vt1) {
   cout << endl;
@@ -24,6 +33,7 @@ void printVector(vector<int> vt1) {
   cout << endl;
 }
 
+// Containers for storing data
 void learnPair() {
   pair<int, int> p{1, 3};
   cout << p.first << "-" << p.second;
@@ -308,8 +318,8 @@ void setExplain() {
   // All operation happened in log(n) TC.
 }
 
-// sorted but can store multiple value of the each.
 void explainMultiSet() {
+  // sorted but can store multiple value of the each.
   int cnt;
   multiset<int> ms;
   ms.insert(1);
@@ -321,20 +331,39 @@ void explainMultiSet() {
 
   // Using range-based for loop to print elements
   cout << endl << "Printing set" << endl;
-
-  for (const auto &element : ms) {
-    std::cout << element << " ";
-  }
+  printContainer(ms);
+  //   for (const auto &element : ms) {
+  //     std::cout << element << " ";
+  //   }
 
   ms.erase(1);
   cnt = ms.count(1);
+  cout << "Printing again";
+  printContainer(ms);
   cout << endl << cnt << "--";
 
   // To remove single instance of the element.
-  // ms.erase(ms.find(1));
+  ms.erase(ms.find(1));
 
   // just before the last element(end at the last iterator.)
-  // ms.erase(ms.find(1), ms.find(1) + 1);
+  // ms.erase(ms.find(1), ms.find(1)+1);
+
+  // Rest of the functions are same as the set.
+}
+
+void explainUniqueSet() {
+  unordered_set<int> st;
+  // unique but not in sorted order.
+  // Lower_bound abd upper_bound functions does not works, rest all functions
+  // are same.
+  // As above it does not stores in any particular order so it has a better
+  // complexity then set in most cases except some when collision happens.
+  // In most of the cases time complexity is O(1) --> worst case O(n)
+}
+
+void map() {
+  // Key(unique)-value(duplicate possible) pair stored.(dictionary)
+  // Key can be of any data structure.
 }
 
 int main() {
