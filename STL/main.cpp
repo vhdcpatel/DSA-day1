@@ -1,6 +1,7 @@
 #include <deque>
 #include <iostream>
 #include <list>
+#include <map>
 #include <queue>
 #include <set>
 #include <stack>
@@ -361,9 +362,40 @@ void explainUniqueSet() {
   // In most of the cases time complexity is O(1) --> worst case O(n)
 }
 
-void map() {
+void explainMap() {
   // Key(unique)-value(duplicate possible) pair stored.(dictionary)
   // Key can be of any data structure.
+
+  map<int, int> mpp;
+  map<int, pair<int, int>> mpp2;
+  map<pair<int, int>, int> mpp3;
+
+  // assigning the key. and it must be unique and stored in sorted order of key
+  // not the value.
+  mpp[1] = 2;
+  // Solve below error
+  // mpp3.emplace({3, 1});
+
+  mpp.insert({2, 4});
+  mpp3[{2, 3}] = 10;
+
+  // printing the value.
+  for (auto it : mpp) {
+    cout << it.first << " " << it.second << endl;
+  }
+  cout << mpp[1] << endl;
+  cout << mpp[5] << endl;  // return null or 0 if does't exits.
+
+  auto it = mpp.find(2);  // pass key get iterator.
+  // another way to write the value of the second.
+  // It will return pointer to last if it does't find it.
+  cout << it->first << " " << it->second << endl;
+
+  // Syntax for lower_bound and upper_bound.
+  auto itLb = mpp.lower_bound(2);
+  auto itUb = mpp.upper_bound(3);
+
+  // erase, swap, size, empty are same as above.
 }
 
 int main() {
@@ -371,7 +403,8 @@ int main() {
   // explainVector();
   // explainQueue();
   // setExplain();
-  explainMultiSet();
+  // explainMultiSet();
+  explainMap();
 
   return 0;
 }
