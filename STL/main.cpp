@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <deque>
 #include <iostream>
 #include <list>
@@ -410,6 +411,72 @@ void explainUnorderedMap() {
   // all operation in O(1) and worst case O(1);
 }
 
+bool comp(pair<int, int> p1, pair<int, int> p2) {
+  // p1 first and p2 second so the following is correct order.
+  if (p1.second < p2.second) return true;
+  if (p1.second > p2.second) return false;
+
+  // if come here means they are same
+  if (p1.first > p2.first) return true;
+
+  return false;
+}
+
+void explainAlgo() {
+  // sorting
+  // syntax
+  // sort(a,a+n);
+
+  // for vector
+  vector<int> v = {5, 2, 4, 1, 0, 10};
+  sort(v.begin(), v.end());
+
+  // to short just some portion of the array.
+
+  sort(v.begin() + 2, v.end());
+  // sort from second from start to end.
+
+  // sort in descending order.(Decreasing order.)
+  sort(v.begin(), v.end(), greater<int>());
+  printContainer(v);
+
+  // Custom sorting.
+  // condition: for following pair
+  // sort it according to second element.
+  // if second element is same, then sort it according to first element but in
+  // the descending.
+  pair<int, int> a[] = {{1, 2}, {2, 1}, {4, 1}};
+  int n = sizeof(a) / sizeof(a[0]);
+  sort(a, a + n, comp);
+  for (const auto &p : a) {
+    std::cout << "(" << p.first << ", " << p.second << ") ";
+  }
+
+  int num = 69;
+  int countOfSetBits = __builtin_popcount(num);
+  cout << endl << countOfSetBits;
+
+  // for long long popcountll();
+  long long num2 = 1245678989;
+  int cnt = __builtin_popcountll(num2);
+
+  // To get all the permutation of the string.
+  string s = "123abc";
+  int totalCombinations = 0;
+  do {
+    cout << s << " ";
+    if (!totalCombinations % 10) {
+      cout << endl;
+    }
+    totalCombinations++;
+  } while (next_permutation(s.begin(), s.end()));
+  cout << endl << "Total possibility are " << totalCombinations << endl;
+
+  // find max from the vector.
+  int maxi = *max_element(v.begin(), v.end());
+  cout << "Maximum value is " << maxi << endl;
+}
+
 int main() {
   // learnPair();
   // explainVector();
@@ -417,6 +484,7 @@ int main() {
   // setExplain();
   // explainMultiSet();
   // explainMap();
+  explainAlgo();
 
   return 0;
 }
