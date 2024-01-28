@@ -9,6 +9,11 @@
 
 
 # for not including the binary of the code 
+*
+!*.*
+!*/
+*.json
+*.gitignore
 *.exe
 *.o
 *.obj
