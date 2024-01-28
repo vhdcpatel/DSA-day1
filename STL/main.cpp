@@ -398,13 +398,25 @@ void explainMap() {
   // erase, swap, size, empty are same as above.
 }
 
+void explainMultimap() {
+  // everything same as map, only it can store mutiple keys.
+  // only mpp[key] cannot be used here.
+  // can store duplicate
+}
+
+void explainUnorderedMap() {
+  // same as set and unordered_set difference.
+  // Not stored in the ordered fashion.
+  // all operation in O(1) and worst case O(1);
+}
+
 int main() {
   // learnPair();
   // explainVector();
   // explainQueue();
   // setExplain();
   // explainMultiSet();
-  explainMap();
+  // explainMap();
 
   return 0;
 }
