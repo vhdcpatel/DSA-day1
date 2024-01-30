@@ -4,18 +4,39 @@
 // #include<bits/stdc++.h>
 using namespace std;
 
-void findFirstOccurrence(int X) {
+void findFirstOccurrence(vector<int> q1v, int X) {
   cout << "In the function";
   // Q1: find the first occurrence of a X in a sorted array. If it does not
   // exits, print -1.
-  vector<int> q1v = {1, 4, 4, 4, 4, 9, 9, 10, 11};
 
   int ind = lower_bound(q1v.begin(), q1v.end(), X) - q1v.begin();
 
-  if (ind != sizeof(q1v) / sizeof(q1v[0]) && q1v[ind] == X)
+  if (ind != q1v.size() && q1v[ind] == X)
     cout << endl << ind << endl;
   else
     cout << endl << -1 << endl;
+}
+
+void findLastOccurrence(vector<int> q1v, int X) {
+  cout << "Last occurrence function." << endl;
+
+  int ind = upper_bound(q1v.begin(), q1v.end(), X) - q1v.begin();
+  // Always return next items so move one position left.
+  ind--;
+  if (ind >= 0 && q1v[ind] == X)
+    cout << ind << endl;
+  else
+    cout << -1 << endl;
+}
+
+void findSmallestNumberGreaterThenX(vector<int> q1v, int X) {
+  cout << "the smallest number greater then X" << endl;
+  int ind = upper_bound(q1v.begin(), q1v.end(), X) - q1v.begin();
+  if ((ind - 1) >= 0 && ind < q1v.size())
+    // check if ind is in the size or not
+    cout << q1v[ind] << endl;
+  else
+    cout << -1 << endl;
 }
 
 void findLastOccurrence(int x) {
@@ -68,10 +89,18 @@ int main() {
   // } else {
   //   cout << "Element not found." << endl;
   // }
+  vector<int> q1v = {1, 4, 4, 4, 4, 9, 9, 10, 11};
 
-  findFirstOccurrence(4);
-  findFirstOccurrence(5);
-  findFirstOccurrence(9);
+  // findFirstOccurrence(q1v, 4);
+  // findFirstOccurrence(q1v, 5);
+  // findFirstOccurrence(q1v, 9);
+
+  // findLastOccurrence(q1v, 4);
+  // for 2 it will be point to next bigger value hence 4 at index 1.
+  // findLastOccurrence(q1v, 2);
+  // findLastOccurrence(q1v, 9);
+
+  findSmallestNumberGreaterThenX(q1v, 0);
 
   return 0;
 }
