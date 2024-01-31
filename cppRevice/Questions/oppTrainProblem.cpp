@@ -9,7 +9,7 @@ void getOppSeatNum(int n) {
     mod = 12;
     pow--;
   }
-  oppSeat = 13 - mod;
+  oppSeat = (13 - mod);
   cout << oppSeat + pow * 12;
   if (oppSeat == 1 || oppSeat == 6 || oppSeat == 7 || oppSeat == 12) {
     cout << " WS";
