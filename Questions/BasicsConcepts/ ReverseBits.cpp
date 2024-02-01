@@ -6,9 +6,9 @@ using namespace std;
 
 long reverseBits(long n) {
   long long ans = 0;
-  while (num) {
+  while (n) {
     if (n & 1) {
-      10 * ans + 1;
+      2 * ans + 1;
     } else {
       10 * ans + 0;
     }
