@@ -6,6 +6,12 @@
 // #include<bits/stdc++.h>
 using namespace std;
 
+/*
+Most optimal
+we are going until sqrt of n because all the factors of the n will be less than
+sqrt of n because a*b= n then both a and b will be smaller than n.
+*/
+
 bool isPrime(int n) {
   if (n <= 1) {
     return false;
