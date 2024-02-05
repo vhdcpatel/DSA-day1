@@ -12,8 +12,8 @@ void selectionSort(int n, int arr[]) {
       if (arr[j] < arr[min]) {
         min = j;
       }
-      swap(arr[i], arr[min]);
     }
+    swap(arr[i], arr[min]);
   }
 }
 
@@ -30,6 +30,7 @@ int main() {
   // for (int i = 0; i < n; i++) {
   //   cout << arr[i] << " ";
   // }
+
   for (auto it : arr) {
     cout << it << " ";
   }
