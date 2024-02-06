@@ -21,15 +21,27 @@ void bubbleSort(int n, int arr[]) {
   // i>=1
   for (int i = n - 1; i > 2; i--) {
     int didSwapHappened = 0;
+    // Check pair for full.
     for (int j = 0; j < i; j++) {
       if (arr[j] > arr[j + 1]) {
         swap(arr[j], arr[j + 1]);
         didSwapHappened = 1;
       }
-      if (!didSwapHappened) {
-        break;
-        // Reduce TC to O(n);
-      }
+    }
+    // Check if no swap happened then break because it might be already sorted.
+    if (didSwapHappened == 0) {
+      break;
+      // Reduce TC to O(n);
+    }
+  }
+}
+
+void insertionSort(int n, int arr[]) {
+  for (int i = 0; i < n; i++) {
+    int j = i;
+    while (j > 0 && arr[j - 1] > arr[j]) {
+      swap(arr[j - 1], arr[j]);
+      j--;
     }
   }
 }
@@ -42,7 +54,7 @@ int main() {
   for (int i = 0; i < n; i++) {
     cin >> arr[i];
   }
-  bubbleSort(n, arr);
+  insertionSort(n, arr);
 
   // for (int i = 0; i < n; i++) {
   //   cout << arr[i] << " ";
