@@ -46,6 +46,32 @@ void insertionSort(int n, int arr[]) {
   }
 }
 
+void binaryInsertionSort(int arr[], int n) {
+  for (int i = 1; i < n; i++) {
+    int key = arr[i];
+    int left = 0, right = i - 1;
+
+    // Binary search to find the correct position for the current element
+    while (left <= right) {
+      int mid = left + (right - left) / 2;
+
+      if (arr[mid] > key) {
+        right = mid - 1;
+      } else {
+        left = mid + 1;
+      }
+    }
+
+    // Move the elements to make space for the current element
+    for (int j = i; j > left; j--) {
+      arr[j] = arr[j - 1];
+    }
+
+    // Insert the current element at the correct position
+    arr[left] = key;
+  }
+}
+
 int main() {
   int n;
   cout << "Enter the size of the array";
