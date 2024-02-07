@@ -51,7 +51,6 @@ void binaryInsertionSort(int arr[], int n) {
     int key = arr[i];
     int left = 0, right = i - 1;
 
-    // Binary search to find the correct position for the current element
     while (left <= right) {
       int mid = left + (right - left) / 2;
 
@@ -62,15 +61,34 @@ void binaryInsertionSort(int arr[], int n) {
       }
     }
 
-    // Move the elements to make space for the current element
     for (int j = i; j > left; j--) {
       arr[j] = arr[j - 1];
     }
 
-    // Insert the current element at the correct position
     arr[left] = key;
   }
 }
+
+void mergeArray(int arr[], int low, int mid, int high) {
+  int temp[low - high];
+  int left = low;
+  int right = mid + 1;
+  while (left <= mid && right <= high) {
+    if (arr[left] <= arr[right]) {
+      temp.push_back()
+    }
+  }
+}
+
+void mergeSort(int arr[], int low, int high) {
+  if (low == high) return;
+  int mid = low + (high - low) / 2;
+  mergeSort(arr, low, mid);
+  mergeSort(arr, mid + 1, high);
+  mergeArray(arr, low, mid, high);
+}
+
+void mergeSortDriver(int arr[], int n) {}
 
 int main() {
   int n;
