@@ -70,14 +70,29 @@ void binaryInsertionSort(int arr[], int n) {
 }
 
 void mergeArray(int arr[], int low, int mid, int high) {
-  int temp[low - high];
+  vector<int> temp;
   int left = low;
   int right = mid + 1;
   while (left <= mid && right <= high) {
     if (arr[left] <= arr[right]) {
-      temp.push_back()
+      temp.push_back(arr[left++]);
+    } else {
+      temp.push_back(arr[right++]);
     }
   }
+
+  while (left <= mid) {
+    temp.push_back(arr[left++]);
+  }
+  while (right <= high) {
+    temp.push_back(arr[right++]);
+  }
+
+  // Copy the merged elements back into the original array
+  for (int i = low; i <= high; ++i) {
+    arr[i] = temp[i - low];
+  }
+  // Pushing all the left elements from both the array into temp array.
 }
 
 void mergeSort(int arr[], int low, int high) {
@@ -88,7 +103,7 @@ void mergeSort(int arr[], int low, int high) {
   mergeArray(arr, low, mid, high);
 }
 
-void mergeSortDriver(int arr[], int n) {}
+void mergeSortDriver(int arr[], int n) { mergeSort(arr, 0, n - 1); }
 
 int main() {
   int n;
@@ -98,7 +113,7 @@ int main() {
   for (int i = 0; i < n; i++) {
     cin >> arr[i];
   }
-  insertionSort(n, arr);
+  mergeSortDriver(arr, n);
 
   // for (int i = 0; i < n; i++) {
   //   cout << arr[i] << " ";
