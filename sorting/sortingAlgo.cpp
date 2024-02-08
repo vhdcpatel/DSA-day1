@@ -105,6 +105,8 @@ void mergeSort(int arr[], int low, int high) {
 
 void mergeSortDriver(int arr[], int n) { mergeSort(arr, 0, n - 1); }
 
+void quickSort(int arr[], int n) {}
+
 int main() {
   int n;
   cout << "Enter the size of the array";
