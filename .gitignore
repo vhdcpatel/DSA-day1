@@ -1,12 +1,6 @@
 .vscode
 
 
-# Just include cpp, c, java ,rs files
-# *
-# !*.cpp
-
-# # !Makefile
-
 
 # for not including the binary of the code 
 *
