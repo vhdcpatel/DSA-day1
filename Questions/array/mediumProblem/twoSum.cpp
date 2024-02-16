@@ -35,14 +35,32 @@ bool twoSumBetter(vector<int> &arr, int sum) {
   }
   return false;
 }
-// TC: O(n) SC: O(n)
+// TC: O(n*log(n)) SC: O(n)
 
 // Optimize approach:
+// without extra space.
+bool twoSum(vector<int> &arr, int sum) {
+  sort(arr.begin(), arr.end());
+
+  int low = 0, high = arr.size() - 1;
+  int tempSum = 0;
+  while (low < high) {
+    tempSum = arr[low] + arr[high];
+    if (tempSum == sum) {
+      return true;
+    } else if (tempSum > sum) {
+      high--;
+    } else if (tempSum < sum) {
+      low++;
+    }
+  }
+  return false;
+}
 
 int main() {
   vector<int> arr = {2, 6, 5, 8, 11};
   int ans;
-  ans = twoSumBetter(arr, 7);
+  ans = twoSum(arr, 7);
   cout << ans;
   return 0;
 }
