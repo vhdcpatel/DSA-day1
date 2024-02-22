@@ -32,7 +32,7 @@ bool isEqual(const vector<int> &v1, const vector<int> &v2) {
   return true;
 }
 
-vector<int> nextGreaterPermutation(vector<int> &A) {
+vector<int> nextGreaterPermutationBrute(vector<int> &A) {
   vector<vector<int>> res;
   // In the sorted error.
   // Find the index of the current permutation in the sorted list
@@ -55,4 +55,51 @@ vector<int> nextGreaterPermutation(vector<int> &A) {
   return res[index + 1];
 }
 
+vector<int> nextGreaterPermutationBrute(vector<int> &A) {
+  int dipIndex = -1;
+  for (int i = A.size() - 2; i >= 0; i--) {
+    if (A[i] < A[i + 1]) {
+      dipIndex = i;
+      break;
+    }
+  }
+
+  if (dipIndex == -1) {
+    reverse(A.begin(), A.end());
+    return A;
+  }
+
+  for (int i = A.size() - 1; i >= 0; i--) {
+    if (A[i] > A[dipIndex]) {
+      swap(A[i], A[dipIndex]);
+      break;
+    }
+  }
+
+  reverse(A.begin() + dipIndex + 1, A.end());
+  return A;
+}
+
+// Optimal from leetcode.
+/*
+void nextPermutation(vector<int>& nums) {
+        int n = nums.size(), k, l;
+        for (k = n - 2; k >= 0; k--) {
+            if (nums[k] < nums[k + 1]) {
+                break;
+            }
+        }
+        if (k < 0) {
+            reverse(nums.begin(), nums.end());
+        } else {
+            for (l = n - 1; l > k; l--) {
+                if (nums[l] > nums[k]) {
+                    break;
+                }
+            }
+            swap(nums[k], nums[l]);
+            reverse(nums.begin() + k + 1, nums.end());
+        }
+    }
+*/
 int main() { return 0; }
