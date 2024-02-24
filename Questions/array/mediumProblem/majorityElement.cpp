@@ -57,9 +57,7 @@ int majorityElement(vector<int> v) {
   // verify the element with counter by rotating array for
   count = 0;
   for (int i = 0; i < v.size(); i++) {
-    if (v[i] == element) {
-      if (v[i] == element) count++;
-    }
+    if (v[i] == element) count++;
   }
   if (count > (v.size() / 2)) {
     return element;
