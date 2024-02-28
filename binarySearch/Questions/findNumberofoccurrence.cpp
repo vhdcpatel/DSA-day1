@@ -31,6 +31,14 @@ int count(vector<int>& arr, int n, int x) {
         } 
     }
     return count;
+
+    // Better because above will result in the O(n) in worst case 
+    // So use binary search to find upper and lower, cut search space for the arr[low] =x,
+    // same as the Get floor and Ceil problem. 
+    // Using STL
+    // auto it1=lower_bound(arr.begin(),arr.end(),x);
+    // auto it2=upper_bound(arr.begin(),arr.end(),x);
+    // return it2-it1;
     
 }
 
