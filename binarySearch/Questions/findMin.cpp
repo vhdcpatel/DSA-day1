@@ -21,6 +21,7 @@ int findMin(vector<int>& arr) {
     }
 
     mid = low + (high - low) / 2;
+    /*
     // Check if the mid element is the minimum
     if (arr[mid] < arr[low]) {
       // The minimum element is in the left half
@@ -32,6 +33,13 @@ int findMin(vector<int>& arr) {
       // Handle the case where arr[mid] == arr[high]
       // We can't determine which half to search, so decrement high
       high--;
+    }
+    */
+    // Optimized one
+    if (arr[mid] > arr[high]) {
+      low = mid + 1;
+    } else {
+      high = mid;
     }
   }
   return arr[low];
