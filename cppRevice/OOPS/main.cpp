@@ -3,11 +3,16 @@
 
 class Employee {         // class 
   public:                // access modifier
-    std::string Name;    // attributes    
+    // std::string Name;    // attributes
+    // better way
+    char name[20];    
     std::string Company;
     int Age;
+    Employee(){
+      
+    }
     void sayHello(){     // Method.
-      std::cout<< "Hello,"<<Name;
+      std::cout<< "Hello,"<<name;
     }
     // std::int Age;
 };
