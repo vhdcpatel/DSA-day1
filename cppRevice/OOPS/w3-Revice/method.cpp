@@ -6,7 +6,7 @@ using namespace std;
 
 class MyClass {        // The class
   public:              // Access specifier
-    void myMethodToSayHello(string name) {  // Method/function defined inside the class
+    void myMethodToSayHello(string name) {  // Method-(function) defined inside the class
       cout << "Hello"<<name<<'\n';
     }
 };

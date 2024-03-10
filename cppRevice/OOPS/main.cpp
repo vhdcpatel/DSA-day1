@@ -1,11 +1,15 @@
 #include <iostream>
 // using namespace std;
 
-class Employee {
-  std::string Name;
-  std::string Company;
-  int Age;
-  // std::int Age;
+class Employee {         // class 
+  public:                // access modifier
+    std::string Name;    // attributes    
+    std::string Company;
+    int Age;
+    void sayHello(){     // Method.
+      std::cout<< "Hello,"<<Name;
+    }
+    // std::int Age;
 };
 
 int main() {
